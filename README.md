@@ -16,6 +16,7 @@ Python 3 : https://www.python.org/downloads/
 
 # Installation: Instructions for installing each of the components are given in the respective links.
 Install ADIOS2 from github source code
-Install Visit version suitable for your system configuration (You can choose any version of Visit >= 3.0)
-	Download the version given in the link for your operating system version.
+
+Install Visit version suitable for your system configuration (You can choose any version of Visit >= 3.0). Download the version given in the link for your operating system version.
+
 Install TensorFlow 2, any version > 2.15
