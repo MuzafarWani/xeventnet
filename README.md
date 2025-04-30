@@ -25,17 +25,25 @@ Install TensorFlow 2, any version > 2.15
 After installing all the above. Set the paths in the Makefiles for each of the components with details given below:
 
 1.Stager:
+
 Set the paths of ADIOS2 installation with the variable ADIOS2_DIR
+
 Set the ADIOS2_CXXLIBS by setting the paths to the ADIOS2 C API and ADIOS2 C API with MPI Support.
 
 2. Data_reader
+
 Set the ADIOS2_CXXLIBS by setting the paths to the ADIOS2 C API and ADIOS2 C API with MPI Support.
+
 Set the NUMPY_INC path to your numpy include path.
+
 Set the PYTHON_INC and PYTHON_LIB paths to your python include and lib
 
 3. Visualization
+   
 Set the ADIOS2_CXXLIBS by setting the paths to the ADIOS2 C API and ADIOS2 C API with MPI Support.
+
 Set the NUMPY_INC path to your numpy include path.
+
 Set the PYTHON_INC and PYTHON_LIB paths to your python include and lib.
 
 the instructions to compile are present in the respective directories
