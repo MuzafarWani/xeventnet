@@ -1,2 +1,0 @@
-# Weather_simulation
-The weather phenomenon simulated in this code is a simplified model of atmospheric advection and diffusion. The code is a simple 2D weather simulation that models the movement of air parcels (advection) and the smoothing of weather properties (diffusion) over a grid. This model doesn't represent the full complexity of atmospheric processes but serves as a basic illustration of how numerical simulations can be used to study weather phenomena.
