@@ -46,4 +46,4 @@ Set the NUMPY_INC path to your numpy include path.
 
 Set the PYTHON_INC and PYTHON_LIB paths to your python include and lib.
 
-the instructions to compile are present in the respective directories
+The instructions to compile are present in the respective directories
