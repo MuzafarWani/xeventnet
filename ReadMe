@@ -1,4 +1,4 @@
-## XEventNet: Extreme Weather Event Prediction using Convolutional Neural Networks and In Situ Visualization
+## **XEventNet: Extreme Weather Event Prediction using Convolutional Neural Networks and In Situ Visualization**
 
 This project is a work for the paper titled "XEventNet: Extreme Weather Event Prediction using Convolutional Neural Networks and In Situ Visualization". The project predicts 4 extreme events from WRF simulation data. The extreme events include landslides, cyclones, heavy rainfalls, and snowfalls. The extreme event data is then visualized by Visit.
 
