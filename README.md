@@ -5,9 +5,13 @@ The extreme event data is then visualized by Visit.
 
 # Requirements:
 ADIOS2: https://github.com/ornladios/ADIOS2
+
 Visit: https://visit-dav.github.io/visit-website/releases-as-tables/#series-33
+
 WRF: https://github.com/wrf-model
+
 TensorFlow : https://www.tensorflow.org/install
+
 Python 3 : https://www.python.org/downloads/
 
 # Installation: Instructions for installing each of the components are given in the respective links.
