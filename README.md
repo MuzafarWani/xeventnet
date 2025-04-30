@@ -49,3 +49,25 @@ Set the PYTHON_INC and PYTHON_LIB paths to your python include and lib.
 # Compilation
 
 The instructions to compile are present in the respective directories
+
+# Execution:
+1. Before execution, make sure you have installed Visit on the local system as well, where you plan to visualize the data.
+   
+2. Set up LD_PRELOAD = /path/compiled/code/of/Stager/code on the system where you are running the WRF simulation.
+   
+3. Execute the WRF simulation by commands like mpirun -n <number_of_processes> ./wrf.exe
+ 
+4. Execute the Data_reader module mpirun -n <number_of_processes> ./sim_dl
+ 
+5. Execute the Visualization module mpirun -n <number_of_processes> ./dl_vis
+6. Once the visualization module is executing, do the below:
+   
+	a. Launch the visit gui from the node where you want to visualize the data.
+
+	b. Using the open button from the GUI connect to the /.visit/simulations directory.
+
+	c. There will be a file created with a name like "001718701078.WRFReader.sim2"
+
+	d. Connect to the latest file created from that and select the variable from Pseudocolor to visualize the variable.
+    
+7. Based on the architecture available, change the number of processes for each of the components.
