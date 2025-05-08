@@ -1,4 +1,4 @@
-#include "headers/data_stager.h"
+#include "data_stager.h"
 #include <math.h>
 #include "libsim.c"
 #include "calmetric.c"
@@ -29,8 +29,8 @@ adios2_engine *engine;
 adios2_step_status err;
 double total_transfer_time = 0.0;
 size_t shape[19], start[19], count[19];
-const char *var_name[NUM_VARS] = {
-    "WRFPARRY", "WRFUARRY", "WRFVARRY", "WRFWARRY", "WRFTARRY", "WRFQVARRY", "WRFPBARRY", "WRFPSFCARRY", "WRFSNHARRY", "WRFSNARRY", "WRFSNCARRY", "WRFRNCARRY", "WRFRNARRY", "WRFRNSARRY", "WRFOLARRY", "WRFU10ARRY", "WRFV10ARRY", "WRFSSTARRY" };
+//const char *var_name[NUM_VARS] = {
+//    "WRFPARRY", "WRFUARRY", "WRFVARRY", "WRFWARRY", "WRFTARRY", "WRFQVARRY", "WRFPBARRY", "WRFPSFCARRY", "WRFSNHARRY", "WRFSNARRY", "WRFSNCARRY", "WRFRNCARRY", "WRFRNARRY", "WRFRNSARRY", //"WRFOLARRY", "WRFU10ARRY", "WRFV10ARRY", "WRFSSTARRY" };
 
 int GetVarIndex(char *varname)
 {

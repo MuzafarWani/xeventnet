@@ -13,7 +13,7 @@
 
 #define NUM_VARS 19
 
-const char *var_names[NUM_VARS] = { "WRFPARRY", "WRFUARRY", "WRFVARRY", "WRFWARRY", "WRFTARRY", "WRFQVARRY", "WRFPBARRY", "WRFPSFCARRY", "WRFSNHARRY", "WRFSNARRY", "WRFSNCARRY", "WRFRNCARRY", "WRFRNARRY", "WRFRNSARRY", "WRFOLARRY", "WRFU10ARRY", "WRFV10ARRY", "WRFSSTARRY" };
+//const char *var_names[NUM_VARS] = { "WRFPARRY", "WRFUARRY", "WRFVARRY", "WRFWARRY", "WRFTARRY", "WRFQVARRY", "WRFPBARRY", "WRFPSFCARRY", "WRFSNHARRY", "WRFSNARRY", "WRFSNCARRY", "WRFRNCARRY", "WRFRNARRY", "WRFRNSARRY", "WRFOLARRY", "WRFU10ARRY", "WRFV10ARRY", "WRFSSTARRY" };
 
 // Global variables for Python function and module
 PyObject *pFunc = NULL;
@@ -131,7 +131,7 @@ void reader(adios2_adios *adios)
     adios2_set_engine(io, "SST");
     adios2_engine *engine = adios2_open(io, streamname, adios2_mode_read); // Open the engine for reading
 
-    size_t global_shape[19], local_start[19], local_count[19];  // Arrays for global shape, local start, and local count
+ //   size_t global_shape[19], local_start[19], local_count[19];  // Arrays for global shape, local start, and local count
 
     step = 0;  // Initialize step counter
 
@@ -195,7 +195,7 @@ void reader(adios2_adios *adios)
         
         //Call Python function to calculate average
        int t = call_python_average(vars, local_count, 19);
-       overlay[myrank] = t;
+       overlay[rank] = t;
        if(t==1)
        {
          // Transfer variables to another stream for visualization
@@ -204,7 +204,7 @@ void reader(adios2_adios *adios)
 
         for (int i = 0; i < 8; i++)
          {
-            adios2_put(engine, vars, data[i], adios2_mode_deferred);
+            adios2_put(engine, vars, data[i], adios2_mode_deferred_t);
          }
         
        } 
