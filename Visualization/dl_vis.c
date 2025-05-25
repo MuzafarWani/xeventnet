@@ -32,7 +32,7 @@ void reader(adios2_adios *adios)
 
     // Open transfer stream
     const char *streamname = "adios2-wrf-array-transfer";
-   // adios2_io *io = adios2_declare_io(adios, "transfer");
+    adios2_io *io = adios2_declare_io(adios, "transfer");
     adios2_set_engine(io, "SST");
     adios2_engine *engine = adios2_open(io, streamname, adios2_mode_read);
 
@@ -87,7 +87,7 @@ void reader(adios2_adios *adios)
             }
 
             adios2_set_selection(vars[i], 1, local_start[i], local_count[i]);
-         //   adios2_get(engine, vars[i], g[i], adios2_mode_deferred);
+            adios2_get(engine, vars[i], g[i], adios2_mode_deferred);
         }
      
         adios2_perform_gets(engine);
@@ -98,7 +98,7 @@ void reader(adios2_adios *adios)
        //  copy_data_var(vars,nranks);
        // }
         
-     //  controlloop(g, &step, ts, step);
+       controlloop(g, &step, ts, step);
          
 
         double end_time = MPI_Wtime();
