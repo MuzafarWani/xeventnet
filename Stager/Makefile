@@ -14,7 +14,7 @@ ADIOS2_DIR = /path/to/adios2/install
 
 # Use the output of adios2-config
 ADIOS2_CXXFLAGS = -DADIOS2_USE_MPI -isystem $(ADIOS2_DIR)/include
-ADIOS2_CXXLIBS = -Wl,-rpath,$(ADIOS2_DIR)/lib $(ADIOS2_DIR)/lib/ADIOS2_C_API  $(ADIOS2_DIR)/lib/ADIOS2_C_API_with MPI_Support -Wl,-rpath-link,$(ADIOS2_DIR)/lib
+ADIOS2_CXXLIBS = -Wl,-rpath,$(ADIOS2_DIR)/lib $(ADIOS2_DIR)/path/adios/c/shared/library $(ADIOS2_DIR)/path/adios/c_mpi/shared/library -Wl,-rpath-link,$(ADIOS2_DIR)/lib
 
 CPPFLAGS=-I$(SRC) -I$(HEADER) $(ADIOS2_CXXFLAGS)
 
