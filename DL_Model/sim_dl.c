@@ -13,20 +13,20 @@
 
 #define NUM_VARS 19
 
-//const char *var_names[NUM_VARS] = { "WRFPARRY", "WRFUARRY", "WRFVARRY", "WRFWARRY", "WRFTARRY", "WRFQVARRY", "WRFPBARRY", "WRFPSFCARRY", "WRFSNHARRY", "WRFSNARRY", "WRFSNCARRY", "WRFRNCARRY", "WRFRNARRY", "WRFRNSARRY", "WRFOLARRY", "WRFU10ARRY", "WRFV10ARRY", "WRFSSTARRY" };
+const char *var_names[NUM_VARS] = { "WRFPARRY", "WRFUARRY", "WRFVARRY", "WRFWARRY", "WRFTARRY", "WRFQVARRY", "WRFPBARRY", "WRFPSFCARRY", "WRFSNHARRY", "WRFSNARRY", "WRFSNCARRY", "WRFRNCARRY", "WRFRNARRY", "WRFRNSARRY", "WRFOLARRY", "WRFU10ARRY", "WRFV10ARRY", "WRFSSTARRY" };
 
 // Global variables for Python function and module
 PyObject *pFunc = NULL;
 PyObject *pModule = NULL;
 
 void initialize_python() {
-    dlopen("libpython3.12.so.1.0", RTLD_LAZY | RTLD_GLOBAL);
+    dlopen("/path/to/python/shared/library", RTLD_LAZY | RTLD_GLOBAL);
     // Initialize the Python Interpreter
     Py_Initialize();
    // printf("All Ok till here 4\n");
     // Add the current directory and numpy's installation path to Python's module search path
-    PyRun_SimpleString("import sys; sys.path.append('.')"); 
-    PyRun_SimpleString("import sys; sys.path.append('/home/muzafarwan/installs/python/lib/python3.12/site-packages')");
+    PyRun_SimpleString("import sys; sys.path.append('.')");  
+    PyRun_SimpleString("path/to/python/lib/packages"); //Path to the 
 
     // Import the Python module
     PyObject *pName = PyUnicode_FromString("inference_call");
@@ -131,7 +131,7 @@ void reader(adios2_adios *adios)
     adios2_set_engine(io, "SST");
     adios2_engine *engine = adios2_open(io, streamname, adios2_mode_read); // Open the engine for reading
 
- //   size_t global_shape[19], local_start[19], local_count[19];  // Arrays for global shape, local start, and local count
+    size_t global_shape[19], local_start[19], local_count[19];  // Arrays for global shape, local start, and local count
 
     step = 0;  // Initialize step counter
 
@@ -195,7 +195,7 @@ void reader(adios2_adios *adios)
         
         //Call Python function to calculate average
        int t = call_python_average(vars, local_count, 19);
-       overlay[rank] = t;
+       overlay[myrank] = t;
        if(t==1)
        {
          // Transfer variables to another stream for visualization
@@ -204,7 +204,7 @@ void reader(adios2_adios *adios)
 
         for (int i = 0; i < 8; i++)
          {
-            adios2_put(engine, vars, data[i], adios2_mode_deferred_t);
+            adios2_put(engine, vars, data[i], adios2_mode_deferred);
          }
         
        } 

@@ -19,7 +19,7 @@ NUMPY_INC = -I/path/to/numpy/include
 
 # Compilation and linking flags
 ADIOS2_CXXFLAGS = -DADIOS2_USE_MPI -isystem $(ADIOS2_DIR)/include
-ADIOS2_CXXLIBS = -Wl,-rpath,$(ADIOS2_DIR)/lib $(ADIOS2_DIR)/lib/libadios2_c.so $(ADIOS2_DIR)/lib/libadios2_c_mpi.so -Wl,-rpath-link,$(ADIOS2_DIR)/lib
+ADIOS2_CXXLIBS = -Wl,-rpath,$(ADIOS2_DIR)/lib $(ADIOS2_DIR)/path/adios/c/shared/library $(ADIOS2_DIR)/path/adios/c_mpi/shared/library -Wl,-rpath-link,$(ADIOS2_DIR)/lib
 
 #LIBSIM_CXXFLAGS = $(LIBSIM_INC)
 #LIBSIM_CXXLIBS = -lsimV2 $(LIBSIM_LIB) -ldl
