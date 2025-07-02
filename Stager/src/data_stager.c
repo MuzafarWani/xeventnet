@@ -1,7 +1,5 @@
 #include "data_stager.h"
 #include <math.h>
-#include "libsim.c"
-#include "calmetric.c"
 #include <adios2_c.h>
 #include <dlfcn.h>
 #include <mpi.h>
